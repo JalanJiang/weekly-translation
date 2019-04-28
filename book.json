@@ -36,7 +36,7 @@
     },
     "prism": {
       "css": [
-        "prismjs/themes/prism-okaidia.css"
+        "prismjs/themes/prism-twilight.css"
       ]
     },
     "baidu": {
