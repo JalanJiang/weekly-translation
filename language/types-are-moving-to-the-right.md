@@ -1,7 +1,8 @@
 - 原文：[Types are moving to the right](https://medium.com/@elizarov/types-are-moving-to-the-right-22c0ef31dd4a)
 - 作者：[Roman Elizarov](https://medium.com/@elizarov)
+- 翻译：[江五渣](http://jalan.space)
 
-## 类型声明右移的原因
+# 类型声明右移的原因
 
 ![](https://cdn-images-1.medium.com/max/800/0*cKzCpeFCRxQQM77R.jpg)
 
@@ -67,7 +68,7 @@ Name   Type
 
 这一代码书写方式正在日渐流行。它是否会成为未来的主流呢？现在还很难确定，但趋势确实如此。
 
-## 生词与短语
+# 生词与短语
 
 - statically-typed：静态类型
 - increasingly：日益
