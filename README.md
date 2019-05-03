@@ -15,7 +15,9 @@ Weekly Translation 每周翻译计划，代号 Sparkling。
 
 - 使用 [Markdown](https://zh.wikipedia.org/zh-hans/Markdown) 语法
 - 排版规则见 [中文文案排版指北](https://github.com/sparanoid/chinese-copywriting-guidelines)
-- Git Commit Message 遵循 [Angular 规范](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.greljkmo14y0)，可参考 [Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
+- Git Commit Message 遵循 [Angular 规范](https://docs.google.com/document/d/1QrDFcIiPjSLDn3EL15IJygNPiHORgU1_OOAqWjiDU5Y/edit#heading=h.greljkmo14y0)，可参考：
+    - [Commit message 和 Change log 编写指南](http://www.ruanyifeng.com/blog/2016/01/commit_message_change_log.html)
+    - [Git Commit 日志风格指南](https://open.leancloud.cn/git-commit-message/)
 - 文章头部应注明原文、作者及译者，例如：
 
 ```
