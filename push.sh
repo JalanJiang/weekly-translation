@@ -1,5 +1,5 @@
 commit=$1
-sudo gitbook build
+gitbook build
 git add *
 git commit -m "$commit"
 git push origin master
