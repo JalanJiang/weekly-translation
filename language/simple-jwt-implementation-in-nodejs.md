@@ -2,6 +2,7 @@
 - 作者：[Guseyn Ismayylov](https://guseyn.com/)
 - 翻译：[Gaga Lee](http://gagalee.ink)
 
+# Node.js 的简单 JWT 实现
 > In this article, I'll explain how easily you can implement authorization and authentication via JWT using only standard modules in Node.js. So, it might be interesting to you, if you really want to know how it works.
 
 在这篇文章中，我会解释如何通过只使用 Node.js 里的标准模块来实现授权和通过 JWT 进行身份验证。因此，这或许对你来说很有趣，我希望你会知道它是怎么工作的。
@@ -184,28 +185,40 @@ function base64UrlDecodeToJSON (str) {
 - [Sample app using JWT with Google OAuth and GitHub OAuth](https://github.com/Guseyn/simple-oauth-app)
 
 ---
-翻译生词：
-1. implement
->n. 工具，器具；手段  
->vt. 实施，执行；实现，使生效
+# 生词与短语
 
-2. Let's say 
+- implement
+
+> n. 工具，器具；手段  
+
+> vt. 实施，执行；实现，使生效
+
+- Let's say 
+
 > 假设
 
-3. optimisation
+- optimisation
+
 > 优化
 
-4. token
+- token
+
 > n. 表征；代币；记号；通证
+
 > adj. 象征的；表意的；作为对某事的保证的
+
 > vt. 象征；代表
 
-5. signature
+- signature
+
 > n. 署名；签名；信号
 
-6. protocols
+- protocols
+
 > n. 协议；礼仪礼节；条款（protocol的复数）
+
 > v. 拟定议定书；拟定草案（protocol的三单形式）
 
-7. parametrize
+- parametrize
+
 > v. 用参数表示；确定……的参数
