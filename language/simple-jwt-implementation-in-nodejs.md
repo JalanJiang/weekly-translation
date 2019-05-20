@@ -15,7 +15,7 @@
 
 JWT 是一串如下方所示格式的字符串。
 
-```
+```javascript
 'encodedHeaderInBase64.encodedPayloadInBase64.encodedSignatureInBase64'
 ```
 
@@ -47,7 +47,7 @@ JWT 是一串如下方所示格式的字符串。
 
 头文件是一段简单的 json。
 
-```
+```javascript
 {
  "alg" : "HS256",
  "type" : "JWT"
@@ -62,7 +62,7 @@ JWT 是一串如下方所示格式的字符串。
 
 **Payload** 是一个用来识别你的用户的对象，所以它必须包含特定用户的唯一数据如邮箱。它同样可以存储一些用户的其他数据，不过你绝对不能存储一些敏感数据如密码。除此之外，在这存储令牌的有效时间将会是一个好用的办法。
 
-```
+```javascript
 {
   "email": "some@email",
   "exp": 1554540588448
@@ -72,7 +72,7 @@ JWT 是一串如下方所示格式的字符串。
 
 你可以使用下方的函数来为你的负载增加有效时间。
 
-```
+```javascript
 function payloadWithExpirationTime (payload, minutesFromNow) {
   let date = new Date()
   date.setMinutes(date.getMinutes() + minutesFromNow)
@@ -88,7 +88,7 @@ function payloadWithExpirationTime (payload, minutesFromNow) {
 
 所以，我们有了 json 结构的头部文件和负载文件。那么我们需要去将他们转换成 64 位编码的字符串。为了完成这个，我们使用如下的函数：
 
-```
+```javascript
 function base64UrlEncodeJSON (json) {
   return Buffer.from(
     JSON.stringify(json)
@@ -107,7 +107,7 @@ function base64UrlEncodeJSON (json) {
 
 使用下方的函数来生成一个签名：
 
-```
+```javascript
 const crypto = require('crypto')
 
 function generateSignature (str, secret) {
@@ -128,7 +128,7 @@ function generateSignature (str, secret) {
 
 因此，为了创建我们的访问令牌我们可以做以下的事情：
 
-```
+```javascript
 const encodedHeaderInBase64 = base64UrlEncodeJSON(header)
 const encodedPayloadInBase64 = base64UrlEncodeJSON(payload)
 const encodedSignatureInBase64 = generateSignature(`${encodedHeaderInBase64}.${encodedPayloadInBase64}`, 'some-secret')
@@ -139,7 +139,7 @@ const token = `${encodedHeaderInBase64}.${encodedPayloadInBase64}.${encodedSigna
 
 现在，我们需要能够去辨别我们从“授权”的请求头文件获得的令牌。
 
-```
+```javascript
 // Returns true if token is valid, otherwise returns false
 // 如果获取的内容存在则返回true,除此之外返回false
 function isValid (token, secret) {
