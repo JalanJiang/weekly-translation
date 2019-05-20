@@ -9,4 +9,5 @@
 ## 其他
 * [日志记录的最佳实践](other/follow-these-logging-best-practices-to-get-the-most-out-of-application-level-logging-slides.md)
 * [用 JSON 作为配置文件的缺陷](other/the-downsides-of-json-for-config-files.md)
+* [浅谈机器学习中的文本摘要](other/a-gentle-introduction-to-text-summarization-in-machine-learning.md)
 
