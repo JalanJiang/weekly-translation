@@ -1,0 +1,618 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>用 JSON 作为配置文件的缺陷 · 每周翻译计划</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        <meta name="author" content="JalanJiang.江子抑 <jjy@meitu.com>">
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-disqus/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-prism/prism-twilight.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-tbfed-pagefooter/footer.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-page-toc-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-back-to-top-button/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-splitter/splitter.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="follow-these-logging-best-practices-to-get-the-most-out-of-application-level-logging-slides.html" />
+    
+
+    
+        <link rel="shortcut icon" href='../favicon.ico' type="image/x-icon">
+    
+    
+        <link rel="bookmark" href='../favicon.ico' type="image/x-icon">
+    
+    
+    
+
+    <style>
+    @media only screen and (max-width: 640px) {
+        .book-header .hidden-mobile {
+            display: none;
+        }
+    }
+    </style>
+    <script>
+        window["gitbook-plugin-github-buttons"] = {"buttons":[{"user":"JalanJiang","repo":"weekly-translation","type":"star","size":"small"}]};
+    </script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="http://jalan.space" target="_blank" class="custom-link">我的博客</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                        <b>1.1.</b>
+                    
+                    简介
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">编程语言</li>
+        
+        
+    
+        <li class="chapter " data-level="2.1" data-path="../language/types-are-moving-to-the-right.html">
+            
+                <a href="../language/types-are-moving-to-the-right.html">
+            
+                    
+                        <b>2.1.</b>
+                    
+                    类型声明右移的原因
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="2.2" data-path="../language/simple-jwt-implementation-in-nodejs.html">
+            
+                <a href="../language/simple-jwt-implementation-in-nodejs.html">
+            
+                    
+                        <b>2.2.</b>
+                    
+                    Node.js 的简单 JWT 实现
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+        
+        <li class="header">其他</li>
+        
+        
+    
+        <li class="chapter " data-level="3.1" data-path="follow-these-logging-best-practices-to-get-the-most-out-of-application-level-logging-slides.html">
+            
+                <a href="follow-these-logging-best-practices-to-get-the-most-out-of-application-level-logging-slides.html">
+            
+                    
+                        <b>3.1.</b>
+                    
+                    日志记录的最佳实践
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="3.2" data-path="the-downsides-of-json-for-config-files.html">
+            
+                <a href="the-downsides-of-json-for-config-files.html">
+            
+                    
+                        <b>3.2.</b>
+                    
+                    用 JSON 作为配置文件的缺陷
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >用 JSON 作为配置文件的缺陷</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <ul>
+<li>&#x539F;&#x6587;&#xFF1A;<a href="https://arp242.net/json-config.html" target="_blank">The downsides of JSON for config files</a></li>
+<li>&#x4F5C;&#x8005;&#xFF1A;<a href="https://arp242.net/" target="_blank">Martin Tournoij</a></li>
+<li>&#x7FFB;&#x8BD1;&#xFF1A;<a href="http://jalan.space" target="_blank">&#x6C5F;&#x4E94;&#x6E23;</a></li>
+</ul>
+<h1 id="&#x7528;-json-&#x4F5C;&#x4E3A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x7F3A;&#x9677;">&#x7528; JSON &#x4F5C;&#x4E3A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x7F3A;&#x9677;</h1>
+<p>&#x8FD1;&#x6765;&#x6211;&#x53D1;&#x73B0;&#x4E86;&#x4EBA;&#x4EEC;&#x8D8A;&#x6765;&#x8D8A;&#x559C;&#x6B22;&#x628A; JSON &#x4F5C;&#x4E3A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x6211;&#x89C9;&#x5F97;&#x8FD9;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x597D;&#x7684;&#x7528;&#x6CD5;&#x3002;</p>
+<p>&#x8FD9;&#x4E0D;&#x662F; JSON &#x8BBE;&#x8BA1;&#x7684;&#x521D;&#x8877;&#xFF0C;&#x4E5F;&#x4E0D;&#x662F;&#x5B83;&#x6240;&#x64C5;&#x957F;&#x7684;&#x9886;&#x57DF;&#x3002;JSON &#x65E8;&#x5728;&#x6210;&#x4E3A; &#x201C;&#x8F7B;&#x91CF;&#x7EA7;&#x6570;&#x636E;&#x4EA4;&#x6362;&#x683C;&#x5F0F;&#x201D;&#xFF0C;&#x5E76;&#x5BF9;&#x5916;&#x58F0;&#x79F0; &#x201C;&#x5BF9;&#x4EBA;&#x7C7B;&#x6765;&#x8BF4;&#x6613;&#x4E8E;&#x8BFB;&#x5199;&#x201D;&#x3001;&#x201C;&#x5BF9;&#x673A;&#x5668;&#x800C;&#x8A00;&#x6613;&#x4E8E;&#x89E3;&#x6790;&#x548C;&#x751F;&#x6210;&#x201D;&#x3002;</p>
+<p>JSON &#x662F;&#x4E00;&#x79CD;&#x975E;&#x5E38;&#x597D;&#x7684;&#x6570;&#x636E;&#x4EA4;&#x6362;&#x683C;&#x5F0F;&#x3002;&#x4EBA;&#x4EEC;&#x9605;&#x8BFB;&#x6216;&#x4E66;&#x5199; JSON &#x90FD;&#x76F8;&#x5BF9;&#x6765;&#x8BF4;&#x8F83;&#x4E3A;&#x5BB9;&#x6613;&#xFF0C;&#x5E76;&#x4E14;&#x5BF9;&#x673A;&#x5668;&#x800C;&#x8A00;&#x89E3;&#x6790;&#x4E5F;&#x5341;&#x5206;&#x7B80;&#x5355;&#xFF08;&#x5C3D;&#x7BA1;&#x5B58;&#x5728;&#x4E00;&#x4E9B; <a href="http://seriot.ch/parsing_json.php" target="_blank">&#x95EE;&#x9898;</a>&#xFF09;&#x3002;</p>
+<p>JSON &#x662F;&#x673A;&#x5668;&#x53EF;&#x8BFB;&#x6027;&#x548C;&#x4EBA;&#x7C7B;&#x53EF;&#x8BFB;&#x6027;&#x7684;&#x826F;&#x597D;&#x6298;&#x8877;&#xFF0C;&#x5BF9;&#x4E8E;&#x8BB8;&#x591A;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x800C;&#x8A00;&#xFF0C;&#x5B83;&#x4E5F;&#x662F;&#x5BF9; XML &#x683C;&#x5F0F;&#x7684;&#x826F;&#x597D;&#x6539;&#x8FDB;&#x3002;</p>
+<p>&#x5C06; JSON &#x7528;&#x4F5C;&#x5176;&#x4ED6;&#x76EE;&#x7684;&#x5C31;&#x597D;&#x50CF;&#x518D;&#x8BF4;&#xFF1A;&#x201C;&#x563F;&#xFF0C;&#x8FD9;&#x628A;&#x9524;&#x5B50;&#x7528;&#x6765;&#x9489;&#x9489;&#x5B50;&#x597D;&#x8D5E;&#x8D5E;&#xFF01;&#x6211;&#x559C;&#x6B22;&#x5B83;&#xFF01;&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x7528;&#x5B83;&#x6765;&#x62E7;&#x87BA;&#x4E1D;&#x5462;&#xFF01;&#x201D;&#x5F53;&#x7136;&#xFF0C;&#x9524;&#x5B50;&#x662F;&#x597D;&#x7684;&#x9524;&#x5B50;&#xFF0C;&#x4F46;&#x4E0D;&#x9002;&#x5408;&#x62E7;&#x87BA;&#x4E1D;&#x7684;&#x5DE5;&#x4F5C;&#x3002;</p>
+<p align="center"><img src="../img/common/split-line/son.jpg" alt=""></p>
+
+<p>&#x5230;&#x76EE;&#x524D;&#x4E3A;&#x6B62;&#xFF0C;&#x6700;&#x5927;&#x7684;&#x95EE;&#x9898;&#x662F;&#x4F60;&#x4E0D;&#x80FD;&#x5728; JSON &#x4E2D;&#x6DFB;&#x52A0;&#x6CE8;&#x91CA;&#x3002;&#x5076;&#x5C14;&#x4E5F;&#x5B58;&#x5728;&#x4E00;&#x4E9B;&#x652F;&#x6301;&#x6CE8;&#x91CA;&#x89E3;&#x6790;&#x7684; JSON &#x89E3;&#x6790;&#x5668;&#xFF0C;&#x4F46;&#x8FD9;&#x5E76;&#x4E0D;&#x5E38;&#x89C1;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x89E3;&#x6790;&#x5668;&#x8FD8;&#x662F;&#x4E0D;&#x652F;&#x6301;&#x6CE8;&#x91CA;&#x89E3;&#x6790;&#x7684;&#x3002;&#x5E76;&#x4E14;&#xFF0C;&#x8FD9;&#x91CC;&#x6709;&#x5145;&#x5206;&#x7684;&#x7406;&#x7531; <a href="https://web.archive.org/web/20120506232618/https://plus.google.com/118095276221607585885/posts/RK8qyGVaGSr" target="_blank">&#x4ECE; JSON &#x4E2D;&#x79FB;&#x9664;&#x6CE8;&#x91CA;&#x89E3;&#x6790;</a> &#x7684;&#x652F;&#x6301;&#x3002;</p>
+<p>&#x4F60;&#x80AF;&#x5B9A;&#x6709;&#x5F88;&#x591A;&#x60F3;&#x8981;&#x5728; JSON &#x4E2D;&#x6DFB;&#x52A0;&#x6CE8;&#x91CA;&#x7684;&#x7406;&#x7531;&#xFF1A;&#x5728;&#x6587;&#x6863;&#x4E2D;&#x6807;&#x6CE8;&#x67D0;&#x4E2A;&#x7684;&#x5B57;&#x6BB5;&#x4E3A;&#x4EC0;&#x4E48;&#x8BBE;&#x7F6E;&#x8FD9;&#x4E2A;&#x503C;&#x3001;&#x9700;&#x8981;&#x5728;&#x6587;&#x6863;&#x4E2D;&#x6DFB;&#x52A0;&#x52A9;&#x8BB0;&#x8BCD;&#x6216;&#x9644;&#x52A0;&#x63CF;&#x8FF0;&#x3001;&#x8B66;&#x544A;&#x4E4B;&#x524D;&#x914D;&#x7F6E;&#x4E2D;&#x51FA;&#x73B0;&#x8FC7;&#x7684;&#x9519;&#x8BEF;&#x3001;&#x5728;&#x6587;&#x6863;&#x4E2D;&#x7EF4;&#x62A4;&#x66F4;&#x65B0;&#x65E5;&#x5FD7;&#x3001;&#x6216;&#x4EC5;&#x4EC5;&#x53EA;&#x60F3;&#x5728;&#x8C03;&#x8BD5;&#x65F6;&#x4E3A;&#x6BB5;&#x843D;&#x6216;&#x503C;&#x6DFB;&#x52A0;&#x6CE8;&#x89E3;&#x3002;</p>
+<p>&#x4E00;&#x4E2A; <a href="http://stackoverflow.com/a/244858/660921" target="_blank">&#x5EFA;&#x8BAE;&#x7684;&#x53D8;&#x901A;&#x505A;&#x6CD5;</a> &#x662F;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x952E;&#x540D;&#xFF0C;&#x4F8B;&#x5982; <code>__comment</code>&#xFF1A;</p>
+<pre class="language-"><code class="lang-json"><span class="token punctuation">{</span><span class="token property">&quot;__comment&quot;</span><span class="token operator">:</span> <span class="token string">&quot;a comment&quot;</span><span class="token punctuation">,</span> <span class="token property">&quot;actual_data&quot;</span><span class="token operator">:</span> <span class="token string">&quot;...&quot;</span><span class="token punctuation">}</span>
+</code></pre>
+<p>&#x4F46;&#x5728;&#x6211;&#x770B;&#x6765;&#xFF0C;&#x8FD9;&#x79CD;&#x5199;&#x6CD5;&#x592A;&#x4E11;&#x4E86;&#x3002;</p>
+<p>&#x6709;&#x4E9B;&#x4EBA;&#x6307;&#x51FA;&#x4F60;&#x53EF;&#x4EE5;&#x628A;&#x6CE8;&#x91CA;&#x653E;&#x5165;&#x63D0;&#x4EA4;&#x65E5;&#x5FD7;&#xFF0C;&#x4F46;&#x80FD;&#x6709;&#x51E0;&#x4E2A;&#x4EBA;&#x4F1A;&#x4ED4;&#x7EC6;&#x9605;&#x8BFB;&#x5386;&#x53F2;&#x63D0;&#x4EA4;&#x8BB0;&#x5F55;&#x5462;&#xFF1F;&#x6BD5;&#x7ADF;&#x5F88;&#x5C11;&#x4F1A;&#x6709;&#x91CD;&#x8981;&#x4FE1;&#x606F;&#x9690;&#x85CF;&#x5728;&#x5176;&#x4E2D;&#x3002;</p>
+<p>&#x4E00;&#x4E9B; JSON &#x7684;&#x53D8;&#x79CD;&#xFF0C;&#x4F8B;&#x5982; JSON5&#xFF0C;Hjson &#x548C; HOCON&#xFF0C;&#x548C;&#x67D0;&#x4E9B; JSON &#x89E3;&#x6790;&#x5668;&#x4E00;&#x6837;&#x652F;&#x6301;&#x5728; JSON &#x4E2D;&#x6DFB;&#x52A0;&#x6CE8;&#x91CA;&#xFF0C;&#x8FD9;&#x5F88;&#x68D2;&#x68D2;&#xFF0C;&#x6211;&#x4E5F;&#x652F;&#x6301;&#x4F60;&#x4F7F;&#x7528;&#x5B83;&#x4EEC;&#x3002;&#x4F46;&#x5B83;&#x4EEC;&#x4E0D;&#x662F; JSON&#xFF0C;&#x800C;&#x662F; JOSN &#x7684;&#x8D85;&#x96C6;&#x3002;&#x5728;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x4E2D;&#x6211;&#x4EEC;&#x53EA;&#x8BA8;&#x8BBA; JSON&#xFF0C;&#x800C;&#x4E0D;&#x8BA8;&#x8BBA;&#x8FD9;&#x4E9B;&#x57FA;&#x4E8E; JSON &#x6784;&#x5EFA;&#x7684;&#x8D85;&#x96C6;&#x3002;</p>
+<p align="center"><img src="../img/common/split-line/son.jpg" alt=""></p>
+
+<p>&#x6211;&#x8FD8;&#x53D1;&#x73B0; JSON &#x7684;&#x624B;&#x5199;&#x7528;&#x6237;&#x4F53;&#x9A8C;&#x975E;&#x5E38;&#x4E0D;&#x7406;&#x60F3;&#xFF1A;&#x4F60;&#x7ECF;&#x5E38;&#x4F1A;&#x5F04;&#x6DF7;&#x5C3E;&#x968F;&#x7684;&#x9017;&#x53F7;&#xFF0C;&#x5E26;&#x5F15;&#x53F7;&#x7684;&#x8BED;&#x4E49;&#x4EE4;&#x4EBA;&#x8BA8;&#x538C;&#xFF0C;&#x4E0E;&#x6B64;&#x540C;&#x65F6;&#x5B83;&#x4E5F;&#x4E0D;&#x652F;&#x6301;&#x591A;&#x884C;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x5199;&#x6CD5;&#x3002;&#x8FD9;&#x4E9B;&#x5C5E;&#x6027;&#x9002;&#x7528;&#x4E8E; JSON &#x7684;&#x9884;&#x671F;&#x7528;&#x9014;&#xFF08;&#x6570;&#x636E;&#x4EA4;&#x6362;&#xFF09;&#xFF0C;&#x4F46;&#x5E76;&#x4E0D;&#x9002;&#x7528;&#x4E8E;&#x7F16;&#x8F91;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002;JSON &#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x5417;&#xFF1F;&#x662F;&#x53EF;&#x884C;&#x7684;&#xFF0C;&#x4F46;&#x5E76;&#x4E0D;&#x9002;&#x7528;&#x3002;</p>
+<p>&#x6211;&#x4E5F;&#x6CA1;&#x53D1;&#x73B0; JSON &#x6587;&#x4EF6;&#x7279;&#x522B;&#x6613;&#x8BFB;&#xFF0C;&#x4F7F;&#x7528;&#x5B83;&#x8FD8;&#x8981;&#x5FCD;&#x53D7;&#x4E00;&#x5806;&#x5F15;&#x53F7;&#x548C;&#x5176;&#x4ED6;&#x7CDF;&#x7CD5;&#x7684;&#x8BED;&#x6CD5;&#x3002;&#x597D;&#x5427;&#xFF0C;&#x6211;&#x627F;&#x8BA4;&#x8FD9;&#x53EF;&#x80FD;&#x662F;&#x6211;&#x4E2A;&#x4EBA;&#x559C;&#x597D;&#x7684;&#x95EE;&#x9898;&#x3002;</p>
+<p align="center"><img src="../img/common/split-line/son.jpg" alt=""></p>
+
+<p>JSON &#x662F;&#x4E00;&#x79CD;&#x9648;&#x8FF0;&#x6027;&#x8D28;&#x7684;&#x914D;&#x7F6E;&#x8BED;&#x8A00;&#x3002;&#x9648;&#x8FF0;&#x6027;&#x914D;&#x7F6E;&#xFF08;DC&#xFF09;&#x9002;&#x7528;&#x4E8E;&#x67D0;&#x4E9B;&#x8303;&#x56F4;&#x5185;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x4F46;&#x4E0D;&#x9002;&#x7528;&#x4E8E;&#x8FD9;&#x4E9B;&#x8303;&#x56F4;&#x4E4B;&#x5916;&#x3002;DC &#x5C24;&#x5176;&#x4E0D;&#x9002;&#x5408;&#x7528;&#x4E8E;&#x63A7;&#x5236;&#x903B;&#x8F91;&#x3002;</p>
+<p>&#x6FC0;&#x8D77;&#x6211;&#x5199;&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x7684;&#x662F; MediaWiki &#x7684;&#x65B0;&#x6269;&#x5C55;&#x7CFB;&#x7EDF;&#x3002;&#x65E7;&#x7CFB;&#x7EDF;&#x6838;&#x5FC3;&#x7684; MediaWiki &#x4EE3;&#x7801;&#x4E2D;&#x6302;&#x8F7D;&#x4E86;&#x7B80;&#x5355;&#x7684; PHP &#x6587;&#x4EF6;&#xFF08;PHP &#x8D5B;&#x9AD8; <code>(&#xE51;&#x2022;&#x300;&#x3142;&#x2022;&#x301;)&#x648;&#x2727;</code>&#xFF09;&#xFF0C;&#x7528;&#x4E8E;&#x52A0;&#x8F7D;&#x6240;&#x9700;&#x8981;&#x7684;&#x4F9D;&#x8D56;&#x9879;&#x3002;&#x800C;&#x65B0;&#x7CFB;&#x7EDF;&#x4F7F;&#x7528; JSON &#x6587;&#x4EF6;&#x66FF;&#x4EE3;&#x4E86;&#x5B83;&#x3002;&#x8FD9;&#x5176;&#x4E2D;&#x6240;&#x4E22;&#x5931;&#x7684;&#x5305;&#x62EC;&#x5DE7;&#x5999;&#x89E3;&#x51B3;&#x4E0E;&#x5176;&#x4ED6;&#x63D2;&#x4EF6;&#x517C;&#x5BB9;&#x6027;&#x7684;&#x80FD;&#x529B;&#x4E0E;&#x5904;&#x7406;&#x5176;&#x4ED6;&#x903B;&#x8F91;&#x95EE;&#x9898;&#x7684;&#x80FD;&#x529B;&#x3002;</p>
+<p>&#x5E76;&#x4E14;&#x8FD9;&#x5B9E;&#x73B0;&#x8D77;&#x6765;&#x4E5F;&#x66F4;&#x52A0;&#x590D;&#x6742;&#xFF0C;&#x4E4B;&#x524D;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x7B80;&#x5355;&#x5730; <code>require(&apos;plugin/foo/plugin.php&apos;);</code>&#xFF0C;&#x800C;&#x73B0;&#x5728;&#x9700;&#x8981;&#x89E3;&#x6790;&#x4E00;&#x4E2A; JSON &#x6587;&#x4EF6;&#x5E76;&#x4E14;&#x5BF9;&#x5176;&#x4E2D;&#x7684;&#x5185;&#x5BB9;&#x505A;&#x8FDB;&#x4E00;&#x6B65;&#x5904;&#x7406;&#x3002;&#x8FD9;&#x4E2A;&#x8FC7;&#x7A0B;&#x66F4;&#x52A0;&#x590D;&#x6742;&#x4E86;&#xFF0C;&#x4E5F; <a href="https://arp242.net/easy.html" target="_blank">&#x96BE;&#x4EE5;&#x8C03;&#x8BD5;</a>&#x3002;</p>
+<p>&#x4F7F;&#x7528; JSON &#x6587;&#x4EF6;&#x8BB0;&#x5F55;&#x57FA;&#x7840;&#x7684;&#x5143;&#x6570;&#x636E;&#x662F;&#x8BF4;&#x5F97;&#x901A;&#x7684;&#xFF08;&#x6613;&#x4E8E;&#x89E3;&#x6790;&#x4E14;&#x5728;&#x7F51;&#x9875;&#x5C55;&#x793A;&#xFF09;&#xFF0C;&#x4F46;&#x4F7F;&#x7528; JSON &#x6765;&#x63CF;&#x8FF0;&#x4EE3;&#x7801;&#x662F;&#x5982;&#x4F55;&#x8FD0;&#x4F5C;&#x5219;&#x662F;&#x5BF9; DC &#x7684;&#x4E00;&#x79CD;&#x8BEF;&#x7528;&#x3002;&#x6BD5;&#x7ADF;&#xFF0C;&#x8FD9;&#x662F;&#x4EE3;&#x7801;&#x7684;&#x7528;&#x9014;&#x554A;&#x3002;</p>
+<p align="center"><img src="../img/common/split-line/son.jpg" alt=""></p>
+
+<p>&#x5F88;&#x591A;&#x4EBA;&#x6765;&#x95EE;&#x6211;&#x8BE5;&#x9009;&#x53D6;&#x4EC0;&#x4E48;&#x4F5C;&#x4E3A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x3002;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x5F88;&#x5BB9;&#x6613;&#x56DE;&#x7B54;&#xFF0C;&#x8FD9;&#x53D6;&#x51B3;&#x4E8E;&#x4F60;&#x7684;&#x4F7F;&#x7528;&#x573A;&#x666F;&#x3001;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x3001;&#x7A0B;&#x5E8F;&#x5E93;&#x73AF;&#x5883;&#x548C;&#x5468;&#x56F4;&#x7684;&#x6587;&#x5316;&#x56E0;&#x7D20;&#x3002;&#x53EF;&#x80FD;&#x9664;&#x4E86;&#x201C;&#x6700;&#x7B80;&#x5355;&#x4E14;&#x6EE1;&#x8DB3;&#x4F60;&#x7684;&#x6240;&#x6709;&#x9700;&#x6C42;&#x201D;&#xFF0C;&#x8FD9;&#x6CA1;&#x6709;&#x4E00;&#x4E2A;&#x552F;&#x4E00;&#x7684;&#x201C;&#x6B63;&#x786E;&#x7B54;&#x6848;&#x201D;&#x3002;&#x5176;&#x5B9E;&#x6211;&#x4E5F;&#x5199;&#x4E86;&#x4E00;&#x7BC7; <a href="https://arp242.net/negative-argument.html" target="_blank">&#x5173;&#x4E8E;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x7684;&#x6587;&#x7AE0;</a>&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x4F18;&#x79C0;&#x7684;&#x53EF;&#x66FF;&#x4EE3;&#x65B9;&#x6848;&#x53EF;&#x80FD;&#x662F;&#x53EA; <a href="https://arp242.net/flags-config.html" target="_blank">&#x4F7F;&#x7528;&#x547D;&#x4EE4;&#x884C;&#x6807;&#x5FD7;</a>&#x3002;</p>
+<p>&#x8FD8;&#x6709;&#x4E00;&#x4E9B;&#x4E13;&#x4E3A;&#x4EBA;&#x7C7B;&#x7F16;&#x8F91;&#x6240;&#x8BBE;&#x7F6E;&#x7684; JSON &#x8D85;&#x96C6;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;<a href="https://json5.org/" target="_blank">JSON5</a>&#x3001;<a href="http://hjson.org/" target="_blank">Hjson</a> &#x548C; <a href="https://github.com/lightbend/config/blob/master/HOCON.md" target="_blank">HOCON</a>&#x3002;&#x5B83;&#x4EEC;&#x90FD;&#x50CF;&#x662F;&#x5BF9;&#x5E38;&#x89C4; JSON &#x7684;&#x5408;&#x7406;&#x5347;&#x7EA7;&#xFF0C;&#x5C3D;&#x7BA1;&#x6211;&#x4E0D;&#x4F7F;&#x7528;&#x5B83;&#x4EEC;&#x5F53;&#x4E2D;&#x7684;&#x4EFB;&#x4F55;&#x4E00;&#x79CD;&#x3002;JSON5 &#x770B;&#x8D77;&#x6765;&#x50CF;&#x662F;&#x4E00;&#x4E2A;&#x597D;&#x7684;&#x66FF;&#x4EE3;&#x54C1;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x5BF9; JSON &#x7684;&#x6539;&#x52A8;&#x6700;&#x5C0F;&#x3002;</p>
+<p>&#x5BF9;&#x4E8E;&#x5B89;&#x5229;&#x5176;&#x4ED6;&#x7684;&#x66FF;&#x4EE3;&#x54C1;&#x6211;&#x4E5F;&#x5F88;&#x662F;&#x72B9;&#x8C6B;&#xFF0C;&#x56E0;&#x4E3A;&#x6211;&#x5E76;&#x6CA1;&#x6709;&#x5BF9;&#x6240;&#x6709;&#x683C;&#x5F0F;&#x505A;&#x6DF1;&#x5165;&#x7684;&#x8BC4;&#x4F30;&#xFF08;<a href="https://arp242.net/yaml-config.html" target="_blank">&#x9664;&#x4E86; YAML</a>&#xFF09;&#x3002;&#x4EC5;&#x770B;&#x4E00;&#x773C;&#x89C4;&#x8303;&#x5F88;&#x96BE;&#x770B;&#x5230;&#x5B83;&#x4EEC;&#x6F5C;&#x5728;&#x7684;&#x7F3A;&#x9677;&#xFF08;YAML &#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x597D;&#x7684;&#x4F8B;&#x5B50;&#xFF0C;&#x5B83;&#x6709;&#x5F88;&#x591A;&#x5FAE;&#x5999;&#x7684;&#x9A9A;&#x64CD;&#x4F5C;&#xFF09;&#x3002;&#x6211;&#x771F;&#x7684;&#x6CA1;&#x6709;&#x65F6;&#x95F4;&#x6216;&#x662F;&#x5174;&#x8DA3;&#x5BF9;&#x6240;&#x6709;&#x7684;&#x66FF;&#x4EE3;&#x54C1;&#x505A;&#x6DF1;&#x5165;&#x7684;&#x8BC4;&#x8FF0;&#x3002;</p>
+<h1 id="&#x6587;&#x7AE0;&#x6982;&#x8981;&#x603B;&#x7ED3;">&#x6587;&#x7AE0;&#x6982;&#x8981;&#x603B;&#x7ED3;</h1>
+<p>&#x4F5C;&#x8005;&#x8BF4;&#x660E;&#x4E86; JSON &#x4E0D;&#x9002;&#x7528;&#x4E8E;&#x4F5C;&#x4E3A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x539F;&#x56E0;&#xFF1A;</p>
+<ol>
+<li>JSON &#x8BBE;&#x8BA1;&#x7684;&#x521D;&#x8877;&#x662F;&#x201C;&#x8F7B;&#x91CF;&#x7EA7;&#x6570;&#x636E;&#x4EA4;&#x6362;&#x683C;&#x5F0F;&#x201D;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4F5C;&#x4E3A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x7684;&#x4E00;&#x4E9B;&#x7279;&#x6027;&#x4E0D;&#x9002;&#x7528;&#x4E8E;&#x914D;&#x7F6E;&#x6587;&#x4EF6;</li>
+<li>JSON &#x4E0D;&#x652F;&#x6301;&#x6CE8;&#x91CA;</li>
+<li>&#x624B;&#x5199;&#x7528;&#x6237;&#x4F53;&#x9A8C;&#x4E0D;&#x7406;&#x60F3;&#xFF0C;&#x4E0D;&#x9002;&#x5408;&#x7528;&#x6765;&#x9891;&#x7E41;&#x7F16;&#x8F91;</li>
+<li>&#x7CDF;&#x7CD5;&#x7684;&#x8BED;&#x6CD5;&#x8BA9;&#x5B83;&#x8BFB;&#x8D77;&#x6765;&#x4E5F;&#x4E0D;&#x662F;&#x7279;&#x522B;&#x5BB9;&#x6613;</li>
+<li>JSON &#x662F;&#x9648;&#x8FF0;&#x6027;&#x8D28;&#x7684;&#x914D;&#x7F6E;&#x8BED;&#x8A00;&#xFF0C;&#x4E0D;&#x9002;&#x5408;&#x7528;&#x6765;&#x63A7;&#x5236;&#x4EE3;&#x7801;&#x903B;&#x8F91;</li>
+</ol>
+<p>&#x53EF;&#x4EE5;&#x7528;&#x4EE5;&#x4E0B;&#x65B9;&#x6848;&#x4F5C;&#x4E3A;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x66FF;&#x4EE3; JSON&#xFF1A;</p>
+<ul>
+<li>JSON &#x7684;&#x4E00;&#x7CFB;&#x5217;&#x8D85;&#x96C6;&#xFF1A;<a href="https://json5.org/" target="_blank">JSON5</a>&#x3001;<a href="http://hjson.org/" target="_blank">Hjson</a> &#x548C; <a href="https://github.com/lightbend/config/blob/master/HOCON.md" target="_blank">HOCON</a></li>
+<li>YAML</li>
+</ul>
+<p>&#x5F53;&#x7136;&#xFF0C;&#x4F7F;&#x7528;&#x4F55;&#x79CD;&#x65B9;&#x6848;&#x53D6;&#x51B3;&#x4E8E;&#xFF1A;</p>
+<blockquote>
+<p>Your use case, programming language, library environment, and social factors.</p>
+</blockquote>
+<h1 id="&#x751F;&#x8BCD;&#x548C;&#x77ED;&#x8BED;">&#x751F;&#x8BCD;&#x548C;&#x77ED;&#x8BED;</h1>
+<ul>
+<li>downsides</li>
+</ul>
+<blockquote>
+<p>n. &#x4E0B;&#x964D;&#x8D8B;&#x52BF;&#xFF0C;&#x7F3A;&#x70B9;</p>
+</blockquote>
+<ul>
+<li>witnessed: I&#x2019;ve recently witnessed the trend of using JSON for configuration files. </li>
+</ul>
+<blockquote>
+<p>v. &#x76EE;&#x7779;&#xFF0C;&#x4F5C;&#x8BC1;</p>
+</blockquote>
+<ul>
+<li>consequently</li>
+</ul>
+<blockquote>
+<p>adv. &#x6240;&#x4EE5;&#xFF0C;&#x56E0;&#x6B64;</p>
+</blockquote>
+<ul>
+<li>intended to be</li>
+</ul>
+<blockquote>
+<p>&#x6253;&#x7B97;&#x6210;&#x4E3A;</p>
+</blockquote>
+<ul>
+<li>lightweight</li>
+</ul>
+<blockquote>
+<p>adj. &#x8F7B;&#x91CF;&#x7684;; &#x4E0D;&#x91CD;&#x8981;&#x7684;</p>
+<p>n. &#x8F7B;&#x91CF;&#x7EA7;&#x9009;&#x624B;</p>
+</blockquote>
+<ul>
+<li>comparatively</li>
+</ul>
+<blockquote>
+<p>adv. &#x5BF9;&#x6BD4;&#x5730;&#xFF1B;&#x76F8;&#x5BF9;&#x5730;&#xFF1B;&#x6BD4;&#x8F83;&#x5730;&#xFF1B;&#x6709;&#x70B9;&#xFF1B;</p>
+</blockquote>
+<ul>
+<li>trade-off </li>
+</ul>
+<blockquote>
+<p>n. &#x4EA4;&#x6613;&#xFF0C;&#x6743;&#x8861;</p>
+</blockquote>
+<ul>
+<li>nails</li>
+</ul>
+<blockquote>
+<p>n. &#x9489;&#x5B50;&#xFF1B;&#x6307;&#x7532;</p>
+<p>v. &#x9489;&#x4F4F;&#xFF1B;&#x6293;&#x4F4F;</p>
+</blockquote>
+<ul>
+<li>By far</li>
+</ul>
+<blockquote>
+<p>&#x5230;&#x76EE;&#x524D;&#x4E3A;&#x6B62;</p>
+</blockquote>
+<ul>
+<li>explicitly </li>
+</ul>
+<blockquote>
+<p>adv. &#x660E;&#x786E;&#xFF0C;&#x663E;&#x7136;</p>
+</blockquote>
+<ul>
+<li>mnemonics</li>
+</ul>
+<blockquote>
+<p>n. &#x5E2E;&#x52A9;&#x8BB0;&#x5FC6;&#x7684;&#x8BCD;&#x53E5;(&#x6216;&#x8BD7;&#x6B4C;&#x7B49;)&#xFF1B;&#x52A9;&#x8BB0;&#x7B26;&#x53F7;</p>
+</blockquote>
+<ul>
+<li>caveats</li>
+</ul>
+<blockquote>
+<p>n. &#x8B66;&#x544A;&#xFF1B;&#x9644;&#x52A0;&#x8BF4;&#x660E;</p>
+</blockquote>
+<ul>
+<li>workaround</li>
+</ul>
+<blockquote>
+<p>n. &#x53D8;&#x901A;&#x65B9;&#x6CD5;</p>
+</blockquote>
+<ul>
+<li>peruse</li>
+</ul>
+<blockquote>
+<p>v. &#x4ED4;&#x7EC6;&#x9605;&#x8BFB;&#xFF1B;&#x7814;&#x8BFB;</p>
+</blockquote>
+<ul>
+<li>dialects</li>
+</ul>
+<blockquote>
+<p>n. &#x65B9;&#x8A00;</p>
+</blockquote>
+<ul>
+<li>UX</li>
+</ul>
+<blockquote>
+<p>n. &#x3010;IT&#x3011; &#x7528;&#x6237;&#x4F53;&#x9A8C;</p>
+</blockquote>
+<ul>
+<li>suboptimal</li>
+</ul>
+<blockquote>
+<p>adj. &#x6B21;&#x4F18;&#x7684;</p>
+</blockquote>
+<ul>
+<li>semantics for quoting</li>
+</ul>
+<blockquote>
+<p>n. &#x8BED;&#x4E49;</p>
+</blockquote>
+<ul>
+<li>lacks</li>
+</ul>
+<blockquote>
+<p>v. &#x7F3A;&#x4E4F;</p>
+</blockquote>
+<ul>
+<li>properties</li>
+</ul>
+<blockquote>
+<p>n. &#x5C5E;&#x6027;&#xFF1B;&#x6027;&#x80FD;</p>
+</blockquote>
+<ul>
+<li>doable</li>
+</ul>
+<blockquote>
+<p>adj. &#x53EF;&#x884C;&#xFF1B;&#x53EF;&#x505A;</p>
+</blockquote>
+<ul>
+<li>syntax</li>
+</ul>
+<blockquote>
+<p>n. &#x53E5;&#x6CD5;&#xFF1B;&#x8BED;&#x6CD5;</p>
+</blockquote>
+<ul>
+<li>declarative</li>
+</ul>
+<blockquote>
+<p>adj. &#x9648;&#x8FF0;&#x7684;&#xFF1B;&#x8BF4;&#x660E;&#x7684;</p>
+</blockquote>
+<ul>
+<li>metadata</li>
+</ul>
+<blockquote>
+<p>n. &#x5143;&#x6570;&#x636E;</p>
+</blockquote>
+<ul>
+<li>makes sense</li>
+</ul>
+<blockquote>
+<p>&#x8A00;&#x4E4B;&#x6709;&#x7406;&#xFF1B;&#x60C5;&#x7406;&#x4E4B;&#x4E2D;&#xFF1B;&#x8BF4;&#x5F97;&#x6709;&#x9053;&#x7406;</p>
+</blockquote>
+<ul>
+<li>misuse</li>
+</ul>
+<blockquote>
+<p>n./v. &#x6EE5;&#x7528;&#xFF1B;&#x8BEF;&#x7528;</p>
+</blockquote>
+<ul>
+<li>after all</li>
+</ul>
+<blockquote>
+<p>&#x6BD5;&#x7ADF;&#xFF1B;&#x7EC8;&#x7A76;</p>
+</blockquote>
+<ul>
+<li>other than</li>
+</ul>
+<blockquote>
+<p>&#x9664;&#x4E86;&#x2026;&#x2026;&#xFF1B;&#x4EE5;&#x5916;</p>
+</blockquote>
+<ul>
+<li>alternative</li>
+</ul>
+<blockquote>
+<p>adj. &#x53EF;&#x4F9B;&#x66FF;&#x4EE3;&#x7684;&#xFF1B;&#x975E;&#x4F20;&#x7EDF;&#x7684;&#xFF1B;&#x53E6;&#x7C7B;&#x7684;</p>
+</blockquote>
+<ul>
+<li>potential drawbacks</li>
+</ul>
+<blockquote>
+<p>&#x6F5C;&#x5728;&#x7684;&#x7F3A;&#x70B9; </p>
+</blockquote>
+<footer class="page-footer"><span class="copyright">JalanJiang.&#x6C5F;&#x5B50;&#x6291; all right reserved&#xFF0C;powered by Gitbook</span><span class="footer-modification">&#x8BE5;&#x6587;&#x4EF6;&#x4FEE;&#x8BA2;&#x65F6;&#x95F4;&#xFF1A;
+2019-05-18 19:55:06
+</span></footer>
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="follow-these-logging-best-practices-to-get-the-most-out-of-application-level-logging-slides.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 日志记录的最佳实践">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"用 JSON 作为配置文件的缺陷","level":"3.2","depth":1,"previous":{"title":"日志记录的最佳实践","level":"3.1","depth":1,"path":"other/follow-these-logging-best-practices-to-get-the-most-out-of-application-level-logging-slides.md","ref":"other/follow-these-logging-best-practices-to-get-the-most-out-of-application-level-logging-slides.md","articles":[]},"dir":"ltr"},"config":{"plugins":["theme-default","disqus","prism","-highlight","tbfed-pagefooter","github-buttons","page-toc-button","back-to-top-button","sitemap-general","favicon@^0.0.2","splitter","baiduana"],"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"},"pluginsConfig":{"tbfed-pagefooter":{"copyright":"JalanJiang.江子抑","modify_label":"该文件修订时间：","modify_format":"YYYY-MM-DD HH:mm:ss"},"prism":{"css":["prismjs/themes/prism-twilight.css"]},"disqus":{"useIdentifier":false,"shortName":"jalanspace"},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"http://jalan.space/leetcode-notebook/"},"fontsettings":{"theme":"white","family":"sans","size":2},"fontSettings":{"theme":"sepia","family":"serif","size":2},"favicon":{"shortcut":"favicon.ico","bookmark":"favicon.ico"},"page-toc-button":{},"back-to-top-button":{},"github-buttons":{"buttons":[{"user":"JalanJiang","repo":"weekly-translation","type":"star","size":"small"}]},"baiduana":{},"baidu":{"token":"c47c7dbbbbb8b1bd7729048f358cd896"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"showLevel":true,"styles":{"ebook":"styles/ebook.css","epub":"styles/epub.css","mobi":"styles/mobi.css","pdf":"styles/pdf.css","print":"styles/print.css","website":"styles/website.css"}}},"theme":"default","author":"JalanJiang.江子抑 <jjy@meitu.com>","pdf":{"pageBreaksBefore":"/","headerTemplate":null,"paperSize":"a4","margin":{"right":62,"left":62,"top":36,"bottom":36},"fontSize":12,"fontFamily":"Arial","footerTemplate":null,"chapterMark":"pagebreak","pageNumbers":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"isbn":"","variables":{},"title":"每周翻译计划","links":{"sidebar":{"我的博客":"http://jalan.space"},"sharing":{"google":null,"facebook":null,"twitter":null,"weibo":null,"all":null}},"gitbook":"*","description":"每周翻译一篇英文技术文章~","extension":""},"file":{"path":"other/the-downsides-of-json-for-config-files.md","mtime":"2019-05-18T11:55:06.194Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2019-05-20T12:38:37.361Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/URI.js/1.16.1/URI.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-disqus/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-github-buttons/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-page-toc-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-back-to-top-button/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-splitter/splitter.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-baiduana/baidu_gitbook.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
