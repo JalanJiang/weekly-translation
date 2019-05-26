@@ -2,6 +2,10 @@
 
 * [简介](README.md)
 
+## 架构
+
+* [Serverless 和 PaaS 的区别](architecture/how-are-serverless-computing-and-platform-as-a-service-different.md)
+
 ## 编程语言
 * [类型声明右移的原因](language/types-are-moving-to-the-right.md)
 * [Node.js 的简单 JWT 实现](language/simple-jwt-implementation-in-nodejs.md)
